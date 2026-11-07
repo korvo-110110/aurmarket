@@ -1,5 +1,4 @@
-# aurmarket
-
+# aurmarket [unfinished project]
 A terminal "marketplace" and search engine for the **AUR** and the official **pacman** repositories. Search like you would in a search engine, browse results with descriptions, inspect packages, and download or install them, all from your terminal.
 
 Built with Python and YAML, for Arch Linux.
