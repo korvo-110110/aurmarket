@@ -40,7 +40,7 @@ yay -S aurmarket
 ### Install script
 
 ```bash
-git clone https://github.com/YOURUSER/aurmarket.git
+git clone https://github.com/korvo-110110/aurmarket.git
 cd aurmarket
 ./install.sh                # install for your user (~/.local/bin/aurmarket)
 sudo ./install.sh --system  # or install for all users (/usr/local/bin/aurmarket)
@@ -53,33 +53,6 @@ If `~/.local/bin` is not in your `PATH`, add this to your shell config:
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 ```
-
-### Manual installation
-
-1. Install the [requirements](#requirements) and clone the repository:
-
-   ```bash
-   git clone https://github.com/YOURUSER/aurmarket.git
-   cd aurmarket
-   ```
-
-2. Run it straight from the folder, no install needed:
-
-   ```bash
-   python aurmarket.py
-   ```
-
-3. Optionally, make it available system-wide as `aurmarket`:
-
-   ```bash
-   sudo mkdir -p /usr/local/share/aurmarket
-   sudo cp -r . /usr/local/share/aurmarket/
-   printf '#!/bin/sh\nexec python3 /usr/local/share/aurmarket/aurmarket.py "$@"\n' | sudo tee /usr/local/bin/aurmarket >/dev/null
-   sudo chmod +x /usr/local/bin/aurmarket
-   ```
-
-   To remove it later: `sudo rm -rf /usr/local/share/aurmarket /usr/local/bin/aurmarket`
-
 ## Usage
 
 ```text
