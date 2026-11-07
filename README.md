@@ -6,7 +6,7 @@ Built with Python and YAML, for Arch Linux.
 
 ## Features
 
-- Full-screen TUI with a Google-style search bar that shows multiple results at once
+- Full-screen TUI with a search bar that shows multiple results at once
 - Searches the AUR and official repos together, or just one of them
 - Sort results (for example by votes)
 - Detailed package info
