@@ -27,6 +27,59 @@ On Arch:
 sudo pacman -S python python-yaml git
 ```
 
+## Installation
+
+### AUR (coming soon)
+
+aurmarket will be available on the AUR, so you'll be able to install it with yay helper:
+
+```bash
+yay -S aurmarket
+```
+
+### Install script
+
+```bash
+git clone https://github.com/YOURUSER/aurmarket.git
+cd aurmarket
+./install.sh                # install for your user (~/.local/bin/aurmarket)
+sudo ./install.sh --system  # or install for all users (/usr/local/bin/aurmarket)
+```
+
+To uninstall, run `./install.sh --uninstall` (add `--system` if you installed system-wide).
+
+If `~/.local/bin` is not in your `PATH`, add this to your shell config:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+### Manual installation
+
+1. Install the [requirements](#requirements) and clone the repository:
+
+   ```bash
+   git clone https://github.com/YOURUSER/aurmarket.git
+   cd aurmarket
+   ```
+
+2. Run it straight from the folder, no install needed:
+
+   ```bash
+   python aurmarket.py
+   ```
+
+3. Optionally, make it available system-wide as `aurmarket`:
+
+   ```bash
+   sudo mkdir -p /usr/local/share/aurmarket
+   sudo cp -r . /usr/local/share/aurmarket/
+   printf '#!/bin/sh\nexec python3 /usr/local/share/aurmarket/aurmarket.py "$@"\n' | sudo tee /usr/local/bin/aurmarket >/dev/null
+   sudo chmod +x /usr/local/bin/aurmarket
+   ```
+
+   To remove it later: `sudo rm -rf /usr/local/share/aurmarket /usr/local/bin/aurmarket`
+
 ## Usage
 
 ```text
@@ -90,4 +143,4 @@ AUR packages are user-submitted and not vetted by the Arch team. Always read the
 
 ## License
 
-Add your license here.
+aurmarket is released under the [MIT License](LICENSE).
