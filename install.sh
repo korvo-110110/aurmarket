@@ -46,7 +46,6 @@ else
 fi
 LAUNCHER="$BIN_DIR/$APP"
 
-# ---------------------------------------------------------------- uninstall
 if [ "$ACTION" = "uninstall" ]; then
   say "Removing $APP ($MODE install)"
   $SUDO rm -f "$LAUNCHER"
@@ -55,7 +54,6 @@ if [ "$ACTION" = "uninstall" ]; then
   exit 0
 fi
 
-# ------------------------------------------------------------- find the app
 ENTRY_FILE=""
 ENTRY_MODULE=""
 for candidate in aurmarket.py main.py __main__.py; do
@@ -66,7 +64,6 @@ if [ -z "$ENTRY_FILE" ] && [ -f "$SRC_DIR/$APP/__main__.py" ]; then
 fi
 [ -n "$ENTRY_FILE$ENTRY_MODULE" ] || die "Couldn't find the program's entry point (aurmarket.py, main.py, or aurmarket/__main__.py) in $SRC_DIR"
 
-# ------------------------------------------------------------- dependencies
 missing=()
 command -v python3 >/dev/null 2>&1 || missing+=("python")
 python3 -c "import yaml" >/dev/null 2>&1 || missing+=("python-yaml")
@@ -85,7 +82,6 @@ if [ "${#missing[@]}" -gt 0 ]; then
   fi
 fi
 
-# ------------------------------------------------------------------ install
 say "Installing $APP to $LIB_DIR"
 $SUDO rm -rf "$LIB_DIR"
 $SUDO mkdir -p "$LIB_DIR" "$BIN_DIR"
@@ -110,7 +106,6 @@ fi
 $SUDO install -m 755 "$tmp" "$LAUNCHER"
 rm -f "$tmp"
 
-# --------------------------------------------------------------------- done
 say "Installed. Run:  $APP"
 if [ "$MODE" = "user" ]; then
   case ":$PATH:" in
